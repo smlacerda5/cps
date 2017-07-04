@@ -1,0 +1,40 @@
+//- previous {} - previous posts info 
+//- next {} - next posts info
+//- nextup t/f - whether to show nextup, or previous and next
+mixin next-item(previous, next, nextup)
+  if previous || next
+    .next-item-container
+      .border-top-sm.border-top
+
+      if !nextup
+        .row
+          .next-item-left.col-xs-6.triangle-hover.previous
+            if previous
+              a(href=previous.url).block-row
+                .triangle.rotate-180.block-xs-2.block-sm-1.align-middle
+                  span.triangle-two-color-right-big
+                .triangle-text.next-title.block-xs-10.block-sm-11.align-middle= previous.title
+
+          .next-item-right.col-xs-6.triangle-hover.next
+            if next
+              a(href=next.url).block-row
+                .triangle-text.next-title.block-xs-10.block-sm-11.align-middle= next.title
+                .triangle.block-xs-2.block-sm-1.align-middle
+                  span.triangle-two-color-right-big
+
+      else
+        if next
+          .block-row.triangle-hover
+            .next-item-left.next-up.block-sm-6.block-xs-12.align-middle
+              a(href=next.url)
+                .next-up Next Up
+
+            .next-item-right.next-up.block-xs-12.block-sm-6
+              a(href=next.url).block-row
+                .triangle-text.next-title.block-xs-10.align-middle= next.title
+                .triangle.block-xs-2.align-middle
+                  span.triangle-two-color-right-big
+
+
+
+

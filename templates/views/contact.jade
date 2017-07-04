@@ -1,0 +1,111 @@
+include ../mixins/header-generic
+
+extends ../layouts/default
+
+block header
+    +genericHeader(data.header)
+
+block content
+    .contact-form
+        .container.form-container
+            section
+                .section-title.border-top-xl.border-bottom-sm
+                    h1= contactSection1Title
+                section.border-bottom-sm
+                    .form-selection-nav
+                        h3= contactSection1Subtitle
+                        if formType == 'general'
+                            button.general-inquiry-btn.btn.btn-lg.active-btn= contactSection1GeneralInquiry
+                            button.press-inquiry-btn.btn.btn-lg= contactSection1PressInquiry
+                        else
+                            button.general-inquiry-btn.btn.btn-lg= contactSection1GeneralInquiry
+                            button.press-inquiry-btn.btn.btn-lg.active-btn= contactSection1PressInquiry
+                        
+                if enquirySubmitted
+                    h3.enquiry-submitted.text-center= contactInquirySubmitted
+
+                else
+                    if formType == "general"
+                        form.contact(method='post')
+                            input(type='hidden', name='enquiryType', value=formType).enquiry-type
+
+                            .block-row(class=validationErrors.name ? 'has-error' : null)
+                                .block-sm-12
+                                    label= contactName
+                                        span.required-asterisk *
+                                .block-sm-6 
+                                    input.med(type="text", name='name.first', placeholder=contactFirstNamePlaceholder, value=formData['name.first'], required)
+                                .block-sm-6
+                                    input.med(type="text", name='name.last', placeholder=contactLastNamePlaceholder, value=formData['name.last'], required)
+                            .block-row.press.hide-me(class=validationErrors.email ? 'has-error' : null)
+                                .block-sm-12
+                                    label= contactPublication
+                                        span.required-asterisk *
+                                    input.med(type="text", name="publication", placeholder=contactPublicationPlaceholder, value=formData["publication"])
+                            .block-row
+                                .block-sm-12
+                                    label= contactEmail
+                                        span.required-asterisk *
+                                    input.med(type="email", name="email", placeholder=contactEmailPlaceholder value=formData['email'])
+                            .block-row(class=validationErrors.subject ? 'has-error' : null)
+                                .block-sm-12
+                                    label= contactSubject
+                                        span.required-asterisk *
+                                .block-sm-12
+                                    if subject
+                                        input.lg(type="text", name="subject", placeholder=contactSubjectPlaceholder, value=subject, required)
+                                    else
+                                        input.lg(type="text", name="subject", placeholder=contactSubjectPlaceholder, value=formData["subject"], required)
+
+                            .block-row
+                                .block-sm-12
+                                    label= contactMessage
+                                        span.required-asterisk *
+                                    textarea.lg(name='message', placeholder=contactMessagePlaceholder, value=formData['message'], rows=12, required)
+
+                            .form-actions
+                                button(type='submit').btn.btn-danger= contactFormSubmitBtn
+                    else
+                        .row
+                            form.contact(method='post')
+                                input(type='hidden', name='enquiryType', value=formType).enquiry-type
+
+                                .block-row(class=validationErrors.name ? 'has-error' : null)
+                                    .block-sm-12
+                                        label= contactName
+                                            span.required-asterisk *
+                                    .block-sm-6 
+                                        input.med(type="text", name='name.first', placeholder=contactFirstNamePlaceholder, value=formData['name.first'], required)
+                                    .block-sm-6
+                                        input.med(type="text", name='name.last', placeholder=contactLastNamePlaceholder, value=formData['name.last'], required)
+                                .block-row.press(class=validationErrors.email ? 'has-error' : null)
+                                    .block-sm-12
+                                        label= contactPublication
+                                            span.required-asterisk *
+                                        input.med(type="text", name="publication", placeholder=contactPublicationPlaceholder, value=formData["publication"])
+                                .block-row
+                                    .block-sm-12
+                                        label= contactEmail
+                                            span.required-asterisk *
+                                        input.med(type="email", name="email", placeholder=contactEmailPlaceholder value=formData['email'])
+
+                                .block-row(class=validationErrors.subject ? 'has-error' : null)
+                                    .block-sm-12
+                                        label= contactSubject
+                                            span.required-asterisk *
+                                    .block-sm-12
+                                        if subject
+                                            input.lg(type="text", name="subject", placeholder=contactSubjectPlaceholder, value=subject, required)
+                                        else
+                                            input.lg(type="text", name="subject", placeholder=contactSubjectPlaceholder, value=formData["subject"], required)
+
+                                .block-row
+                                    .block-sm-12
+                                        label= contactMessage
+                                            span.required-asterisk *
+                                        textarea.lg(name='message', placeholder=contactMessagePlaceholder, value=formData['message'], rows=12, required)
+
+                                .form-actions
+                                    button(type='submit').btn.btn-danger= contactFormSubmitBtn
+block js
+    script(src="/js/contact-form.js")

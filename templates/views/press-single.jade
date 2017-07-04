@@ -1,0 +1,21 @@
+include ../mixins/next-item
+include ../mixins/single-story
+include ../mixins/header-story
+include ../mixins/related-content-subsection
+
+extends ../layouts/default
+
+block header
+  +headerStory(data.press)
+
+block content
+  .page-press.page
+    .container
+      .section
+        +single-story(data.press, data.related)
+
+        +next-item(null, data.next, true)
+
+        +relatedContentSubsection(data.related, data.press)
+
+    include ../includes/join-newsletter

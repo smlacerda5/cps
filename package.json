@@ -1,0 +1,49 @@
+{
+  "name": "the-coalition-for-public-safety",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "async": "^1.5.0",
+    "bluebird": "^3.4.7",
+    "connect-mongo": "^1.3.2",
+    "dotenv": "^2.0.0",
+    "fbgraph": "^1.3.0",
+    "forever": "^0.15.3",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-shell": "^1.3.1",
+    "keystone": "^0.3.19",
+    "lodash": "^4.13.1",
+    "mailchimp-api-v3": "^1.4.0",
+    "mandrill-api": "^1.0.45",
+    "node-cron": "^1.1.2",
+    "open-graph-scraper": "^2.3.2",
+    "twit": "^2.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^2.12.0",
+    "eslint-config-keystone": "^2.3.1",
+    "eslint-plugin-react": "^5.1.1",
+    "grunt": "^0.4.4",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-less": "^1.3.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.4.17",
+    "grunt-node-inspector": "^0.4.1",
+    "grunt-nodemon": "^0.2.1",
+    "grunt-shell": "^1.3.1",
+    "load-grunt-configs": "^0.4.1",
+    "load-grunt-tasks": "^0.4.0",
+    "open": "0.0.5",
+    "time-grunt": "^0.3.1",
+    "uglify": "^0.1.5"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node keystone.js",
+    "dev" : "nodemon keystone.js",
+    "prod": "node keystone.js",
+    "coalition": "nodemon keystone.js"
+  }
+}

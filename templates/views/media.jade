@@ -1,0 +1,85 @@
+include ../mixins/pagination
+include ../mixins/header-generic
+include ../mixins/filter-by-btn
+
+
+extends ../layouts/default
+
+
+block header
+	+genericHeader(data.header)
+
+
+block content
+	.page-press.page
+		.container
+			.section
+				.change-border-xl
+					.title
+						h1= pressTitle
+			
+					.categories-section.row.categories-section-sm-margin
+						ul.categories.col-xs-7.col-md-8.category-hook
+							if filters.category
+								li
+									a(href=press)= pressCategoriesAll
+								each category, idx in data.categories
+									li
+										if filters.category.key == category.key
+											a(href=category.category.url class="selected")= category.name
+										else
+											a(href=category.category.url)= category.name
+							else
+								li
+									a(href=press class="selected")= pressCategoriesAll
+								each category, idx in data.categories
+									li
+										a(href=category.category.url)= category.name
+
+						+filterBy(press + '/press-release/filter-by/', data.locations)
+
+				.press-items.block-row.filter-by-replace
+					each item in data.posts.results
+						.press-item.block-sm-6.block-xs-12.block-md-4.align-top
+							a(href="#{!item.sourceLink ? item.url : item.sourceLink}" target="#{!item.sourceLink ? '' : '_blank'}")
+								.press-item-container.hover-rose.equal-height
+									if item.thumbnail_url
+										.embed.ratio-16-9
+											img(src=item.thumbnail_url)
+									.press-source
+										p= item.source
+									.press-title
+										p= item.title
+									if item.sourceLink
+										.icon-external-link-square
+				
+					+pagination(data.posts, data.path)
+
+
+		if data.newsPosts && data.newsPosts.length > 0
+			.container
+				.section
+					.border-top-xl.flex-row-container.flex-start.section-title-md
+						h1= pressNews
+						.flex-1.text-right.triangle-hover
+							.text-right.triangle-hover.learn-more-container
+								a(href=news)
+									p.learn-more.text-right= seeAll
+									.triangle-two-color-right-big
+
+					.press-items.block-row
+						each item in data.newsPosts
+							.press-item.block-sm-6.block-xs-12.block-md-4.align-top
+								a(href="#{ !item.sourceLink ? item.url : item.sourceLink }" target="#{ !item.sourceLink ? '' : '_blank' }")
+									.press-item-container.hover-rose.equal-height
+										if item.thumbnail_url
+											.embed.ratio-16-9
+												img(src=item.thumbnail_url)
+										.press-source
+											p= item.source
+										.press-title
+											p= item.title
+										if item.sourceLink
+											.icon-external-link-square
+
+		include ../includes/join-newsletter

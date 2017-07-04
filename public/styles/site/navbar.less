@@ -1,0 +1,247 @@
+
+/* ============================= */
+/* !!!!!!!!!! NAVBAR !!!!!!!!!!! */
+/* ============================= */
+#header > nav {
+  position: relative;
+  width: 100%;
+  bottom: 18px;
+}
+.subnav {
+  position: relative;
+  min-height: 72px;
+  padding: 0;
+  background-color: rgb(51, 89, 184);
+  z-index: 2;
+}
+.navbar {
+  margin-bottom: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+.navbar-header {
+  height: 72px;
+}
+.nav {
+  min-height: 72px;
+  padding-right: 0px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+
+  /*animation: 3s ease-in infinite reverse both wobble;*/
+
+  a {
+    display: inherit;
+    width: 151px;
+    .transition(all; 250ms);
+    img {
+      width: 100%;
+    }
+  }
+}
+/*@keyframes wobble {
+  from { transform: rotate3d(1,0,0,0deg); }
+  50%  { transform: rotate3d(1,10,0,60deg); }
+  to   { transform: rotate3d(1,0,0,0deg); }
+}*/
+
+
+.hidden-nav-logo {
+  display: none;
+}
+.hidden-navbar {
+  display: none;
+}
+
+button.navbar-toggle {
+  width: 70px;
+}
+.navbar-toggle:after {
+  content: 'Menu';
+  color: #fff;
+  position: relative;
+  top: -14px;
+  left: 14px;
+}
+.nav {
+  li {
+    display: inline-block;
+    a {
+      padding: 0 0;
+      padding-top: 26px;
+      padding-bottom: 23px;
+      color: rgb(163, 180, 223) !important;
+      font-size: 14px;
+    }
+    a:hover {
+      color: #fff !important;
+    }
+  }
+}
+@media (min-width: @screen-sm) {
+  .nav-left {
+    li:first-child {
+      margin-left: 36px;
+    }
+  }
+  .nav-right {
+    li:last-child {
+    margin-right: 36px;
+    }
+  }
+  .nav-right {
+    text-align: right;
+  }
+}
+
+
+
+
+
+/* ========= NAV MEDIA QUERIES ========= */
+@media (max-width: 1178px) {
+  .nav-right > li:first-child {
+    margin-left: 0;
+  }
+} /* END OF 1178px MEDIA QUERY */
+
+@media (min-width: 1079px) {
+  .nav {
+    li {
+      margin-left: 30px;
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+
+@media (min-width: @screen-sm) {
+  .nav {
+    li {
+      margin-left: 18px;
+    }
+  }
+}
+@media (min-width: 1150px) {
+  .nav {
+    li {
+      margin-left: 36px;
+    }
+  }
+}
+
+@media (max-width: 1149px) {
+  .hidden-nav-logo {
+    display: inline-block;
+    margin: 12px 0 12px 24px;
+    img {
+      width: initial;
+    }
+  }
+  div#navbar > ul.no-display, .nav-logo {
+    display: none;
+  }
+  #navbar {
+    padding: 0 15px;
+    overflow: hidden;
+    ul.no-display, .nav-logo {
+        display: none;
+    }
+  }
+  .nav {
+    li {
+      a {
+        font-size: 12px;
+      }
+    }
+  }
+  .nav-logo > a {
+    margin: 0 auto;
+  }
+  .hidden-navbar {
+    display: inline-block;
+    .social-blue;
+  }
+  .navbar-inverse .navbar-collapse {
+    border-top: 1px solid rgb(163, 180, 223);
+  }
+  .navbar-nav {
+    margin: 0px;
+    min-height: 72px;
+  }
+}
+
+/* ========= NAV TO FIXED ON SCROLL @ TOP ========= */
+.fix_nav {
+  position: fixed;
+  width: 100%;
+  height: 72px;
+  top: 0px;
+  left: 0px;
+  .transition(all; 200ms);
+}
+
+/* THERE IS SOME OVERFLOW
+   IN THE NAV MENU */
+.navbar {
+  min-height: 72px;
+}
+.navbar-nav {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.navbar-inverse .navbar-toggle:hover {
+  background-color: transparent;
+}
+.navbar-inverse .navbar-toggle:focus {
+  background-color: transparent;
+}
+.navbar-inverse {
+  background-color: transparent; 
+  border: none;
+  border-radius: 0;
+}
+.navbar-inverse .navbar-toggle {
+  padding: 16px 0px;
+  border-color: transparent;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-right: 24px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+  background-color: transparent;
+}
+
+@media (max-width: @screen-sm) {
+  .navbar-nav {
+    .active {
+      border: none;
+
+      a {
+        color: @white !important;
+      }
+    }
+  }
+}
+
+/* ========= MEDIA QUERY ADJUSTMENTS ========= */
+@media (min-width: 768px) {
+  .navbar-nav > li {
+      float: none;
+  }
+}
+
+
+.fa-icon-search {
+  font-size: 17px !important;
+}

@@ -1,0 +1,12 @@
+mixin filterBy(path, locations)
+  .filter-by.col-xs-5.col-md-4
+    span.filter-by-headline= filterByTitle
+    btn-group.filter-by-btn-group
+      button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false").btn.btn-secondary.dropdown-toggle= filterAllStates
+        span.fa.fa-icon-caret-down
+      .dropdown-menu
+        if path
+          a(href=path + 'all').dropdown-item= filterAllStates
+        if locations
+          each location in locations
+            a(href=path + location.name.toLowerCase() data-id=location.id).dropdown-item= location.name

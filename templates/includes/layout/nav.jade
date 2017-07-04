@@ -1,0 +1,145 @@
+nav.navbar.navbar-inverse
+  div.subnav.col-lg-12.col-md-12.col-sm-12
+    div.navbar-header
+      div.hidden-nav-logo
+        a(href='/')
+          img(src=cfpsLogo)
+      button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    div#navbar.navbar-collapse.collapse(aria-expanded="false" style="height: 1px;")
+      ul.nav.navbar-nav.hidden-navbar.col-lg-12.col-md-12.col-sm-12.col-xs-12.block-row
+        if section == "state-work"
+          li.block-xs-6.block-sm-3.active
+            a(href=reformInAction)= pagesReformInAction
+        else
+          li.block-xs-6.block-sm-3
+            a(href=reformInAction)= pagesReformInAction
+
+        if section == "issue"
+          li.block-xs-6.block-sm-3.active
+            a(href=keyIssues)= pagesIssues
+        else
+          li.block-xs-6.block-sm-3
+            a(href=keyIssues)= pagesIssues
+            
+        if section == "story"
+          li.block-xs-6.block-sm-3.active
+            a(href=stories)= pagesStories
+        else
+          li.block-xs-6.block-sm-3
+            a(href=stories)= pagesStories
+
+         if section == "press"
+          li.block-xs-6.block-sm-3.active
+            a(href=press)= pagesPress
+        else
+          li.block-xs-6.block-sm-3
+            a(href=press)= pagesPress
+
+
+        if section == "research"
+          li.block-xs-6.block-sm-3.active
+            a(href=research)= pagesResearch
+        else
+          li.block-xs-6.block-sm-3
+            a(href=research)= pagesResearch
+                       
+         if section == "blog"
+          li.block-xs-6.block-sm-3.active
+            a(href=blog)= pagesBlog
+        else
+          li.block-xs-6.block-sm-3
+            a(href=blog)= pagesBlog
+                       
+        if section == "about"
+          li.block-xs-6.block-sm-3.active
+            a(href=about)= pagesAbout
+        else
+          li.block-xs-6.block-sm-3
+            a(href=about)= pagesAbout
+            
+        if section == "take-action"
+          li.block-xs-6.block-sm-3.active
+            a(href=takeAction)= pagesTakeAction
+        else
+          li.block-xs-6.block-sm-3
+            a(href=takeAction)= pagesTakeAction
+
+        if section == "search"
+          li.block-xs-6.block-sm-3.active
+            a(href=search).fa.fa-icon-search
+        else
+          li.block-xs-6.block-sm-3
+            a(href=search).fa.fa-icon-search
+
+            
+
+      ul.nav.navbar-nav.drop-nav.no-display.col-lg-5.col-md-5.col-sm-5.nav-left
+        if section == "state-work"
+          li.active.first-nav-item
+            a(href=reformInAction)= pagesReformInAction
+        else
+          li.first-nav-item
+            a(href=reformInAction)= pagesReformInAction
+
+        if section == "issue"
+          li.active
+            a(href=keyIssues)= pagesIssues
+        else
+          li
+            a(href=keyIssues)= pagesIssues
+            
+        if section == "story"
+          li.active
+            a(href=stories)= pagesStories
+        else
+          li
+            a(href=stories)= pagesStories
+
+         if section == "press"
+          li.active
+            a(href=press)= pagesPress
+        else
+          li
+            a(href=press)= pagesPress
+      div.nav-logo.col-lg-2.col-md-2.col-sm-2
+        a(href='/')
+          img(src=cfpsLogo)
+      ul.nav.navbar-nav.drop-nav.no-display.col-lg-5.col-md-5.col-sm-5.nav-right
+        if section == "research"
+          li.active
+            a(href=research)= pagesResearch
+        else
+          li
+            a(href=research)= pagesResearch
+                       
+         if section == "blog"
+          li.active
+            a(href=blog)= pagesBlog
+        else
+          li
+            a(href=blog)= pagesBlog
+                       
+        if section == "about"
+          li.active
+            a(href=about)= pagesAbout
+        else
+          li
+            a(href=about)= pagesAbout
+            
+        if section == "take-action"
+          li.active
+            a(href=takeAction)= pagesTakeAction
+        else
+          li
+            a(href=takeAction)= pagesTakeAction
+        
+        if section == "search"
+          li.active
+            a(href=search).fa.fa-icon-search
+        else
+          li
+            a(href=search).fa.fa-icon-search

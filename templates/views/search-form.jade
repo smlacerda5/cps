@@ -1,0 +1,17 @@
+include ../mixins/header-generic
+include ../mixins/tags
+include ../mixins/pagination-tags
+
+extends ../layouts/default
+
+block header
+	//- +genericHeader()
+
+block content
+	include ../includes/search-form
+
+	include ../includes/join-newsletter
+
+
+block js
+	script(src='/js/scripts/search.js' async)

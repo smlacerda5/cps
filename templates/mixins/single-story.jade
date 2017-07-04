@@ -1,0 +1,13 @@
+include ./related-content
+
+mixin single-story(single, related, hasTitle)
+  .single-story
+    .block-row
+      if single
+        .single-story-content.block-sm-8.block-xs-12
+          if hasTitle
+            h3.single-story-title= single.title
+          if single.content 
+            p!= single.content.extended
+    
+        +relatedContent(related, single)

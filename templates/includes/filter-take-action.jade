@@ -1,0 +1,17 @@
+include ../mixins/pagination
+
+.section.filter-by-replace
+	.press-items.block-row.take-action-items
+		each item in data.posts.results
+			.press-item.take-action-item.block-sm-6.block-xs-12.block-md-4.align-top
+				a(href=item.url).hover-download
+					.take-action-item-container.hover-rose.equal-height
+						.categories
+							each category in item.categories
+								span= category.name
+						.item-content
+								h4= item.title
+								.download
+									span.icon-download
+
+		+pagination(data.posts, data.path)

@@ -1,0 +1,92 @@
+
+/* ================== FEEDS ================== */
+.main-feeds {
+  width: 100%;
+  margin: 110px auto 156px auto !important;
+}
+
+.feed-1,
+.feed-2 {
+  display: flex;
+  -webkit-display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  min-height: 250px;
+  color: @white; 
+  overflow: visible !important;
+}
+
+.feed-1-container,
+.feed-2-container {
+  flex: 0 0 400px;
+  -webkit-flex: 0 0 400px;
+}
+
+.main-stories {
+  overflow: visible !important;
+}
+
+.main-feeds-negative-margin {
+  margin-right: 0;
+}
+
+.feed-1-container, .feed-2-container {
+  padding: 36px;
+  margin-right: 30px;
+  flex-wrap: 0 0 360px;
+  -webkit-flex-wrap: 0 0 360px;
+  position: relative;
+  .media-date-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+
+    .feed-media {
+      float: left;
+    }
+    .feed-date {
+      float: right;
+      p {
+        font-family: Rubik-Medium;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.feed-blurb {
+  padding: 12px 0 24px 0;
+}
+.feed.title h5 {
+  font-family: Rubik-Bold;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  line-height: 32px;
+}
+
+div.feed-blurb > p,
+div.feed-media > p,
+div.feed-date > p {
+  color: @white;
+  font-weight: 100;
+  line-height: 24px;
+}
+
+.media-date-container { 
+  padding: 0 36px;
+
+  span {
+    opacity: .6;
+  }
+  .retweet-count {
+    padding-left: 5px;
+  }
+  a:hover span {
+    opacity: 1;
+  }
+  .feed-media span {
+    padding-right: 15px;
+  }
+}

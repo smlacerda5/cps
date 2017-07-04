@@ -1,0 +1,48 @@
+include ../mixins/header-generic
+include ../mixins/pagination
+include ../mixins/allies
+include ../mixins/filter-by-btn
+include ../mixins/tags
+
+extends ../layouts/default
+
+
+block header
+	+genericHeader(data.header)
+
+
+block content
+	.page-stat.page.page-reform-in-action
+
+		.container
+			.section
+				.section-title.change-border-xl
+					.title
+						h1= stateReformsSectionTitle 
+					
+					.categories-section.row.categories-section-sm-margin
+
+						//- gets locations for filter by select button
+						+filterBy(reformInAction + '/state-work/filter-by/', data.locations)
+
+				.stats-container.filter-by-replace
+					each post in data.posts.results
+						.stats-row
+							a(href=post.url)
+								.stat-container.flex-row-container.flex-start.triangle-hover
+									.stat-content
+										h3.stat-title= post.title
+										!= post.content.brief
+										div
+											p.state-work-learn-more= learnMore 
+											span.triangle-two-color-right-big
+									.stat-image.text-center
+										img(src=post.thumbnail_url).media-middle
+
+					+pagination(data.posts)
+
+
+		+allies(data.allies)
+
+		include ../includes/join-newsletter
+

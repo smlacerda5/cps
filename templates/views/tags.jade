@@ -1,0 +1,25 @@
+include ../mixins/header-generic
+include ../mixins/tags
+include ../mixins/pagination-tags
+
+extends ../layouts/default
+
+block header
+	+genericHeader(data.header)
+
+block content
+	.page-issues.page.page-tags
+		.container
+			.issues-container.block-row.section.filter-by-replace
+				each post in data.posts.results
+					.issue-container.block-xs-12.block-sm-6
+						div.border-top-med
+							a(href="#{post.sourceLink ? post.sourceLink : post.url}" target="#{post.sourceLink ? '_blank' : ''}").issue-container
+								h3.issue-title= post.title
+								.issue-excerpt
+									!= post.excerpt
+						+tags(post)
+
+				+pagination-tags(data.posts, '/tags?id=' + filters.id)
+
+		include ../includes/join-newsletter

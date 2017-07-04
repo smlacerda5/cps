@@ -1,0 +1,21 @@
+.join-us.container
+  .join-newsletter
+    .section-title.border-top-xl
+      h1= joinNewsletterTitle
+    .section-contents.newsletter
+      h3= joinNewsletterSubtitle
+
+      form#newsletter-form.join-us-form.row
+        .col-xs-6.col-md-2.bring-forward
+          input#mailchimp-first-name(type="text" name="firstName" placeholder="#{contactFirstNamePlaceholder}").mailchimp-input.mailchimp-first-name.first-name
+        .col-xs-6.col-md-2.bring-forward
+          input#mailchimp-last-name(type="text" name="lastName" placeholder="#{contactLastNamePlaceholder}").mailchimp-input.mailchimp-last-name.last-name
+        .col-xs-6.col-md-3.bring-forward
+          input#mailchimp-email(type="email" name="email" placeholder=emailPlaceholder).mailchimp-input.mailchimp-email
+        .col-xs-6.col-md-2.bring-forward
+          input#mailchimp-zip(type="text" name="zip" placeholder=zipPlaceholder pattern="\\d{5}").mailchimp-input.mailchimp-zip
+        .col-xs-12.col-md-3.btn-join-now
+          input(type="submit" value=joinNewsletterBtn).btn-default-red
+        .col-xs-12
+          p.form-submit-message
+

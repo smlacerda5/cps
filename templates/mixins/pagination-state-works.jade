@@ -1,0 +1,22 @@
+mixin pagination-state-works(items, path)
+  if items && items.totalPages > 1
+    .paginate.container.state-works-paginate
+      ul.pagination-row.border-top-sm
+        each item, idx in items.pages
+          if items.currentPage == idx + 1
+            li.pagination-num.selected
+              a(class="page-num" href="#{path ? path : ''}" + '?page=' + (idx + 1))= idx + 1
+          else
+            li.pagination-num
+              a(class="page-num" href="#{path ? path : ''}" + '?page=' + (idx + 1))= idx + 1
+
+        if items.totalPages > 1
+            li.pagination-next.triangle
+              a(href="#{path ? path : ''}" + "?page=" + items.next).page-num
+                .triangle.text-right
+                  span.triangle-two-color-right-big
+                  
+            li.pagination-previous
+              a(href="#{path ? path : ''}" + '?page='+items.previous).page-num
+                .triangle.text-left
+                  span.triangle-two-color-left-big

@@ -1,0 +1,41 @@
+include ../mixins/pagination
+include ../mixins/header-cps-events
+include ../mixins/filter-by-btn
+
+extends ../layouts/default
+
+block header
+	+cpsEventsHeader(data.featured)
+
+block content
+	.page
+		.container
+
+			//- cps events section
+			if data.posts && data.posts.results && data.posts.results.length > 0
+				.section
+					.section-title.change-border-xl
+						.title
+							h1= cpsEventsTitle
+						.categories-section.row
+
+					.block-row.filter-by-replace
+						each post in data.posts.results
+							.block-sm-6.block-xs-12.align-top
+								a(href=post.url).story-anchor
+									.content-background.hover-rose.equal-height
+										if post.thumbnail_url
+											.embed.ratio-16-9
+												img(src=post.thumbnail_url)
+										.date-container
+											label
+												if post.eventDate
+													| #{post._.eventDate.format('MMM D, YYYY')}
+										.story-title-container
+											h4!= post.title
+
+
+						+pagination(data.posts)
+
+	include ../includes/join-newsletter
+		

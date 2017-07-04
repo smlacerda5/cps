@@ -1,0 +1,41 @@
+/* DONATE  */
+.donate-include {
+  .donate {
+    /* CPS NOT READY TO DISPLAY THIS YET */
+    display: none;
+    padding-bottom: 20px;
+  }
+  .follow-us {
+    a {
+      max-width: 350px;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+      
+      &:last-child {
+        margin-top: 30px;
+      }
+    }
+    span {
+      font-family: Rubik-Bold;
+    }
+    i {
+      margin-right: 16px;
+      font-size: 18px;
+    }
+  }
+  h1 {
+    margin-bottom: 24px;
+  }
+  p {
+    margin-bottom: 32px;
+  }
+}
+@media (max-width: 414px) {
+  .donate {
+    display: none;
+  }
+  .donate-include .follow-us {
+    margin-top: 0;
+  }
+}

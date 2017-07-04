@@ -1,0 +1,21 @@
+include ../mixins/next-item
+include ../mixins/single-story
+include ../mixins/header-state-work
+include ../mixins/related-content-subsection
+
+extends ../layouts/default
+
+block header
+  +headerStateWork(data.post)
+
+block content
+  .page-single-story.page
+    .container
+      .section
+        +single-story(data.post, data.related, false)
+
+        +next-item(data.previous, data.next, false)
+
+        +relatedContentSubsection(data.related, data.post)
+
+  include ../includes/join-newsletter

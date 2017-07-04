@@ -1,0 +1,14 @@
+.header-intro.homepage-header-form
+	form(action="/" method="POST" id="newsletter-form").newsletter-form.block-row
+		.newsletter-group.bring-forward.block-xs-6.block-sm-3.block-md-2
+			input(type="text" name="first_name" placeholder=contactFirstNamePlaceholder).first-name.mailchimp-first-name
+		.newsletter-group.bring-forward.block-xs-6.block-sm-3.block-md-2
+			input(type="text" name="last_name" placeholder=contactLastNamePlaceholder).last-name.mailchimp-last-name
+		.newsletter-group.bring-forward.block-xs-6.block-sm-4.block-md-4
+			input(type="email" name="email" placeholder=emailPlaceholder).email.mailchimp-email
+		.newsletter-group.bring-forward.block-xs-6.block-sm-2.block-md-2
+			input(type="text" name="zip" placeholder=zipPlaceholder).zip.mailchimp-zip
+		.newsletter-group.block-xs-12.block-sm-12.block-md-2.btn-join-non.text-center
+			input(type="submit" value=joinNewsletterBtn).header-btn-default
+		.newsletter-group.col-xs-12
+			p.form-submit-message

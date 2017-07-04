@@ -1,0 +1,60 @@
+include ../mixins/pagination
+include ../mixins/featured-story-header
+include ../mixins/filter-by-btn
+
+extends ../layouts/default
+
+block header
+	+featuredStoryHeader(data.featured)
+
+block content
+	.page-stories.page
+		//- banner section
+		if data.champion
+			.champion-banner-section
+				.container
+					.block-row.champion-container-stories
+						.champion-image.block-xs-12.block-sm-6.text-center.align-middle
+							img(src="#{data.champion.thumbnail_url}")
+						.champion-text.block-xs-12.block-sm-6.align-middle
+							h5.champion-month Our #{data.champion._.forDate.format('MMMM')} Champion
+							h2.champion-name= data.champion.name
+							h3.champion-title= data.champion.jobTitle
+							a.champion-btn.btn-default-red(href="#{data.champion.url}") See why we chose #{data.champion.sex == 'male' ? 'him' : 'her'}
+							
+					if data.banner && data.banner.medium_url
+						.text-center.justice-champions-banner
+							a(href="#{justiceChampions}")
+								img(src=data.banner.medium_url)
+
+		.container
+			//- main content section
+			.section
+				.section-title.change-border-xl
+					.title
+						h1= storiesSectionTitle
+			
+					.categories-section.row
+						+filterBy('/voices-of-reform/filter-by/', data.locations)
+
+
+				.block-row.filter-by-replace
+					each story in data.posts.results
+						.block-lg-6.block-md-6.block-xs-12.align-top
+							a(href=story.url).story-anchor
+								.content-background.hover-rose.equal-height
+									if story.thumbnail_url
+										.embed.ratio-16-9
+											img(src=story.thumbnail_url)
+									.date-container
+										label
+											if story.publishedDate
+												| #{story._.publishedDate.format('MMM D, YYYY')}
+									.story-title-container
+										h4!= story.title
+											
+					+pagination(data.posts)
+
+
+	include ../includes/share-a-story
+		

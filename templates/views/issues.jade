@@ -1,0 +1,27 @@
+include ../mixins/header-generic
+
+extends ../layouts/default
+
+block header
+	+genericHeader(data.header)
+
+block content
+	.page-issues.page
+		.container
+			.issues-container.block-row.section
+				.issue-container.block-sm-12.block-md-6
+					div
+						h1= issuesSectionSubheading 
+				each issue in data.issues
+					.issue-container.block-sm-12.block-md-6
+						div.border-top-med
+							a(href=issue.url).issue-container.triangle-hover
+								h3.issue-title= issue.title
+								.learn-more.text-right
+									p.learn-more.text-right= learnMore
+									.triangle-two-color-right-big
+								.issue-excerpt
+									!= issue.excerpt
+
+		include ../includes/join-newsletter
+

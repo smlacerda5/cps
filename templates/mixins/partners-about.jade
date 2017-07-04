@@ -1,0 +1,10 @@
+mixin partners-about(partners)
+  if partners && partners.length > 0
+    .main-partners.container
+      .section.border-top-xl
+        h1= partnersTitle
+        .partners.block-row
+          each item in partners
+            .block-xs-6.block-sm-4.block-md-3.block.align-middle.partners-about
+              a(data-id="#{item._id}")
+                img(src=item.color_url)

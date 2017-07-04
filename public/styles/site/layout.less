@@ -1,0 +1,116 @@
+/* load fonts */
+@font-face {
+	font-family: Rubik-Bold;
+	src: url('../../fonts/Rubik-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: Rubik-Medium;
+	src: url('../../fonts/Rubik-Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: Rubik-Regular;
+	src: url('../../fonts/Rubik-Regular.ttf') format('truetype');
+}
+
+*, body, div, p, a {
+  padding: 0;
+  font-size: 16px;
+  margin: 0;
+  line-height: 1;
+}
+*, body, div, h3, h5, p, a {
+  margin: 0;
+}
+
+
+a {
+  text-decoration: none !important;
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Rubik-Bold;
+  letter-spacing: -.2px;
+}
+h1 {
+  padding-top: 24px;
+  padding-bottom: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 36px;
+  line-height: 48px;
+}
+h2 {
+	font-size: 30px;
+	line-height: 42px;
+}
+h3 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 20px;
+  line-height: 32px;
+}
+h5 {
+	font-size: 16px;
+	line-height: 24px;
+}
+h6 {
+	font-size: 12px;
+	line-height: 16px;
+}
+label {
+	font-size: 12px;
+	font-family: Rubik-Regular;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+p {
+	font-family: Rubik-Regular;
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: -.2px;
+	color: @pcolor;
+}
+blockquote {
+  border-left: 8px solid @red;
+}
+.container {
+  max-width: @screen-md;
+}
+
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+		-webkit-transition: background-color 5000s ease-in-out 0s;
+		-ms-transition: background-color 5000s ease-in-out 0s;
+		-moz-transition: background-color 5000s ease-in-out 0s;
+		-o-transition: background-color 5000s ease-in-out 0s;
+}
+
+.newsletter-form input:-webkit-autofill,
+.newsletter-form input:-webkit-autofill:hover,
+.newsletter-form input:-webkit-autofill:focus,
+.newsletter-form input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+		-webkit-text-fill-color: white !important;
+		-ms-transition: background-color 5000s ease-in-out 0s;
+		-webkit-transition: background-color 5000s ease-in-out 0s;
+		-o-transition: background-color 5000s ease-in-out 0s;
+		-moz-transition: background-color 5000s ease-in-out 0s;
+
+}
+
+span, em, strong {
+	font-size: inherit;
+	font-family: inherit;
+}
+.btn-danger {
+	color: @white !important;
+}

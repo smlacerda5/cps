@@ -1,0 +1,39 @@
+include ../mixins/pagination
+include ../mixins/header-generic
+include ../mixins/filter-by-btn
+include ../mixins/tags
+
+extends ../layouts/default
+
+block header
+	+genericHeader(data.header)
+
+block content
+	.page-blog.page
+		.container
+			.section
+				.section-title.change-border-xl
+					.title
+						h1= blogSection1Title
+			
+					.categories-section.row
+						//- .categories.col-xs-7.col-md-8
+
+						+filterBy('/blog/filter-by/', data.locations)
+
+				if data.posts && data.posts.results
+					.press-items.block-row.blog-items.filter-by-replace
+						each item in data.posts.results
+							div.press-item.blog-item.block-sm-6.block-xs-12.align-top
+								div.blog-item-container.hover-rose.equal-height
+									a(href=item.url)
+										.embed.ratio-16-9
+											img(src=item.thumbnail_url)
+										p.published-date
+											if item.publishedDate
+												| #{item._.publishedDate.format('MMM D, YYYY').toUpperCase()}
+												h3= item.title
+
+						+pagination(data.posts, data.path)
+
+		include ../includes/join-newsletter

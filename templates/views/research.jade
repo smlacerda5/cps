@@ -1,0 +1,60 @@
+include ../mixins/pagination
+include ../mixins/header-generic
+include ../mixins/filter-by-btn
+
+extends ../layouts/default
+
+block header
+	+genericHeader(data.header)
+
+block content
+	.page-researches.page
+		.container
+			.section
+				.section-title.change-border-xl
+					.title
+						h1= researchSectionTitle
+			
+					.categories-section.row.categories-section-sm-margin
+						ul.categories.col-xs-7.col-md-8.category-hook
+							if filters.category
+								li
+									a(href=research).default= researchCategoriesAll
+							
+								each category, idx in data.categories
+									li
+										if filters.category.key == category.key
+											a(href=category.category.url class="selected")= category.name
+										else
+											a(href=category.category.url)= category.name
+							else
+								li
+									a(href=research class="selected")= pressCategoriesAll
+								each category, idx in data.categories
+									li
+										a(href=category.category.url)= category.name
+
+						//- gets locations for filter by select button
+						+filterBy(research + '/filter-by/', data.locations)
+
+				.block-row.filter-by-replace
+					each item in data.posts.results
+						.block-md-4.block-sm-6.block-xs-12.align-top
+							a(href=item.sourceLink target="_blank").hover-external-link
+								.item.bg-light.hover-rose.equal-height
+										.item-categories
+											each category in item.categories
+												span.item-category= category.name
+										.item-title
+												h4= item.title
+										if item.source
+											.source.block-row
+												.source-left.block-xs-3
+													span.icon-external-link-square
+												.source-right.text-right.block-xs-9
+													p.article-source= item.source.toUpperCase()
+
+
+					+pagination(data.posts, data.path)
+
+		include ../includes/join-newsletter

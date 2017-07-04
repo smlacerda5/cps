@@ -1,0 +1,50 @@
+mixin headerStateWork(post)
+  if post
+    if post.small_url || post.medium_url || post.large_url || post.x_large_url
+      #header.plain-header.flex-row-container.flex-start.hero-image
+        img(srcset='#{post.small_url} 500w, #{post.medium_url} 900w, #{post.large_url} 1200w, #{post.x_large_url} 2000w' src='#{post.medium_url}' alt=post.title)
+        .header-intro.container.flex-1
+          .header-issue.row
+            if post.stat1
+              .overview.col-sm-10.col-xs-12
+                h1= post.title
+                p.overview-small-header= stateWorkHeaderOverview
+                p.excerpt!= post.overview
+              .statistics.col-sm-2.col-xs-6
+                if post.stat1
+                  .stat
+                    p= post.stat1
+                    if post.stat1Label
+                      p.overview-small-header= post.stat1Label
+                    else
+                      p.overview-small-header= stateWorkStatistics
+                if post.stat2
+                  .stat
+                    p= post.stat2
+                    if post.stat2Label
+                      p.overview-small-header= post.stat2Label
+                    else
+                      p.overview-small-header= stateWorkStatistics
+
+                if post.stat3
+                  .stat
+                    if post.stat3Label
+                      p= post.stat3
+                        p.overview-small-header= post.stat3Label
+                    else
+                      p.overview-small-header= stateWorkStatistics
+            else
+              .overview.col-sm-12
+                h1= post.title
+                  p.overview-small-header= stateWorkHeaderOverview
+                  p.excerpt!= post.overview
+
+    else
+      #header.plain-header.flex-row-container.flex-start.hero-image.no-image
+        .header-intro.container.flex-1
+          .header-issue.row
+
+  else
+    #header.plain-header.flex-row-container.flex-start.hero-image.no-image
+      .header-intro.container.flex-1
+        .header-issue.row

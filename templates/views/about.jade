@@ -1,0 +1,92 @@
+include ../mixins/header-generic
+include ../mixins/partners
+include ../mixins/partners-about
+
+extends ../layouts/default
+
+block header
+	+genericHeader(data.header)
+
+block content
+	.page-about.page
+		.container
+			.section
+				.section-title.border-top-xl.border-bottom-sm
+					h1= aboutMissionTitle
+				.row.mission-statement-container
+					.col-md-6.col-sm-12.title
+						h3= aboutMissionStatement
+						a(href=takeAction class="btn-default-red").text-center= pagesTakeAction 
+					.col-md-6.col-sm-12.info
+						p= aboutMissionParagraph1 
+						br
+						p= aboutMissionParagraph2
+
+			.section
+				.section-title.border-top-xl
+					h1= aboutOurGoalsTitle
+					.goals
+						h4= aboutOurGoalsBullet1
+						h4= aboutOurGoalsBullet2
+						h4= aboutOurGoalsBullet3
+						h4= aboutOurGoalsBullet4
+						h4= aboutOurGoalsBullet5
+
+		+partners-about(data.partners)
+
+		if data.partners && data.partners.length > 0
+			.container
+				.section
+					#partner-carousel.carousel.align-middle(data-ride="carousel")
+						ol.carousel-indicators
+							each item,idx in data.partners
+								li(data-target="#partner-carousel" data-slide-to="#{idx}" class="#{idx == 0 ? 'active' : null}")
+						.carousel-inner
+							each item,idx in data.partners
+								.item(id='#{item._id}' class="#{idx == 0 ? 'active' : null}")
+									.partner-image
+										a(href='#{item.sourceLink}' target="_blank")
+											img(src='#{item.color_url}' alt=item.title)
+									.partner-contents
+										.partner-content
+											!=item.content
+										.partner-link
+											p= goTo + ' '
+												a(href='#{item.sourceLink}' target="_blank")= item.companyName
+										.partner-title.text-right
+											p.citation-by='- ' + item.citationBy + ', '
+												span.professional-title=item.professionalTitle
+											p.company-name=item.companyName
+						a.left.carousel-control(href="#partner-carousel" role="button" data-slide="prev")
+							span.icon-prev(aria-hidden="true")
+						a.right.carousel-control(href="#partner-carousel" role="button" data-slide="next")
+							span.icon-next(aria-hidden="true")
+
+		.container
+			.section
+				.section-title.border-top-xl.border-bottom-sm
+					h1= aboutOurTeamTitle
+			
+				each item in data.team
+					.team-member.row.border-bottom-sm
+						.col-sm-4.col-xs-12.member-image
+							img(src=item.thumbnail_url)
+						
+						.col-sm-8.col-xs-12.member-info
+							h3.name= item.firstName 
+								if item.middleInitial 
+									= " " + item.middleInitial
+								= " " + item.lastName
+							label= item.jobTitle
+							p.content!= item.content
+							p.email
+								a(href="mailto:" + item.email).triangle-hover
+									span.email-link= "Contact " + item.firstName
+									span.triangle-two-color-right-big
+
+		
+		include ../includes/join-newsletter
+
+
+block js
+	script(src='/js/scripts/partner-carousel.js' async)

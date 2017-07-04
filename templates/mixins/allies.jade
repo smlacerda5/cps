@@ -1,0 +1,10 @@
+mixin allies(allies)
+  if allies && allies.length > 0
+    .main-partners.container
+      .section.border-top-xl
+        h1= alliesTitle
+        .partners.block-row
+          each item in allies
+            .block-xs-6.block-sm-4.block-md-3.block.align-middle
+              a(href=item.sourceLink target="_blank")
+                img(src=item.color_url)

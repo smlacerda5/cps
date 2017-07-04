@@ -1,0 +1,5 @@
+mixin plainHeader(title, bgImage)
+  #header.plain-header.flex-row-container.flex-start(style="#{ bgImage ? 'background-image: url(\" + bgImage + \"); background-size: contain; background-position-x: center; background-repeat: no-repeat;' : '' }" class="#{ bgImage ? '' : 'no-image' }")
+    .header-intro.flex-1.container.text-center
+      .heading.flex-1
+        h1= title

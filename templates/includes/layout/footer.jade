@@ -1,0 +1,102 @@
+.static-footer
+  .col-md-4.col-sm-12.footer-logo
+    .block-row
+      .block-md-8.block-sm-8.block-xs-12
+        img(src=cfpsLogo)
+        .tlmworks-built
+          h5.tlmworks= footerBuiltBy
+            a.foot-anchor(href=tlmworks target="_blank")= footerAnchor
+          h5.tlmworks= footerTlmWorks  
+      
+      .copyright-container.block-md-12.block-sm-4.align-top
+        .copyright
+          p!= footerCopy1
+          p= footerCopy2
+          a.foot-anchor(href=privacy)= footerPrivacy 
+
+
+    div.social-media-icons.footer-social-icons.col-xs-12
+      div.col-xs-3
+        a(href=facebook)
+          p.fa.fa-icon-facebook
+      div.col-xs-3
+        a(href=twitter)
+          p.fa.fa-icon-twitter
+      div.col-xs-3
+        a(href=youtube)
+          p.fa.fa-icon-youtube
+      div.col-xs-3
+        a(href=medium)
+          p.fa.fa-icon-medium
+
+
+  .col-md-8.col-sm-12.row
+    .nav-sec-border.col-sm-3.col-xs-6(role='navigation')
+      .footer-list
+        p.foot-menu= footerReformInAction
+        ul
+          li
+            a.nav-item.nav-link(href=stateWork)= footerState
+          li
+            a.nav-item.nav-link(href=fedWorkFooter)= footerFederal
+
+    .nav-sec-border.col-sm-3.col-xs-6(role='navigation')
+      .footer-list
+        p.foot-menu= footerResources
+        ul
+          li
+            a.nav-item.nav-link(href=keyIssues)= pagesIssues
+          li
+            a.nav-item.nav-link(href=stories)= pagesStories
+          li
+            a.nav-item.nav-link(href=research)= pagesResearch
+          li
+            a.nav-item.nav-link(href=takeAction)= pagesTakeAction
+
+    .nav-sec-border.col-sm-3.col-xs-6(role='navigation')
+      .footer-list
+        p.foot-menu= footerCompany
+        ul
+          li
+            a.nav-item.nav-link(href=about)= pagesAbout
+          li
+            a.nav-item.nav-link(href=press)= pagesPress
+          li
+            a.nav-item.nav-link(href=blog)= pagesBlog
+          li
+            a.nav-item.nav-link(href=twitter)= footerCompanyTwitter
+          li
+            a.nav-item.nav-link(href=facebook)= footerCompanyFacebook
+          li
+            a.nav-item.nav-link(href=youtube)= footerCompanyYouTube
+          li
+            a.nav-item.nav-link(href=medium)= footerCompanyMedium
+
+    .nav-sec-border.col-sm-3.col-xs-6(role='navigation')
+      .footer-list
+        p.foot-menu= footerContact
+        ulv
+          li
+            a.nav-item.nav-link(href=contactPress)= footerContactPress
+          li
+            a.nav-item.nav-link(href=contactGeneral)= footerContactGeneral
+          li
+            a.nav-item.nav-link (202) 624-7720
+
+.supporters.flex-row-container.flex-start
+  .col-md-6.col-sm-12.supporters-tagline-container
+    p.supporters-tagline= footerSupportersTagline1
+    p.supporters-tagline-sm= footerSupportersTagline2
+  .footer-supporters.col-md-6.col-xs-12.block-row
+    .block-sm-3.block-xs-6.block-md-3
+      a.support-logos.ford(href='https://www.fordfound.org/')
+        img(src='/images/logos/logo_ford_color@2x.png')
+    .block-sm-3.block-xs-6.block-md-3
+      a.support-logos.mac(href='https://www.macfound.org/')
+        img(src='/images/logos/logo_macarthur_color@2x.png')
+    .block-sm-3.block-xs-6.block-md-3
+      a.support-logos.ljaf(href='http://www.arnoldfoundation.org/')
+        img(src='/images/logos/logo_ljaf_color@2x.png')
+    .block-sm-3.block-xs-6.block-md-3
+      a.support-logos.koch(href='http://www.kochind.com/')
+        img(src='/images/logos/logo_koch_color@2x.png')        

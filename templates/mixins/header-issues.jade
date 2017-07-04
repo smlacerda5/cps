@@ -1,0 +1,16 @@
+mixin headerIssues(post)
+  if post && (post.small_url || post.medium_url || post.large_url || post.x_large_url)
+    #header.plain-header.flex-row-container.flex-start.hero-image.issues-hero
+      img(srcset='#{post.small_url} 500w, #{post.medium_url} 900w, #{post.large_url} 1200w, #{post.x_large_url} 2000w' src='#{post.medium_url}' alt=post.title)
+      .header-intro.container.flex-1
+        .row.text-center
+          .col-sm-12
+            h1= post.title
+            if post.subTitle
+              div.white-hr
+              p.subtitle= post.subTitle
+
+  else
+    #header.plain-header.flex-row-container.flex-start.hero-image.no-image
+      .header-intro.container.flex-1
+        .row

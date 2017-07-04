@@ -1,0 +1,133 @@
+
+
+/* ====== D3 SECTION ========= */
+path.state {
+  stroke-width: .75px;
+  stroke: white;
+}
+
+.board {
+  position: relative
+}
+
+.label-div {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.map-label {
+  color: #999;
+  font-family: Rubik-Medium;
+  font-size: 12px;
+}
+
+.map-circle {
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 50%;
+  margin-right: 5px;
+  position: relative;
+  top: 1px;
+}
+
+div.state-name {
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+div.state-name h3 {
+  font-size: 16px;
+}
+
+div.state-name button.state-nav {
+  padding: 0 5px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 3px;
+  line-height: 36px;
+
+  span {
+    line-height: inherit;
+    padding: 0 15px;
+  }
+}
+
+.state-name .nav-left {
+ 
+  &::after {
+    content: url('../images/svg/hollow-triangle-left.svg');
+  }
+  &:hover::after {
+    content: url('../images/svg/filled-triangle-left.svg');
+  }
+  &:active {
+    outline: none;
+    border: none;
+    border-color: transparent;
+  }
+}
+
+.state-nav-left {
+  left: 0px;
+}
+
+.state-nav-right {
+  right: 0px;
+}
+
+.state-name .nav-right {
+  &::after {
+    content: url('../images/svg/hollow-triangle-right.svg');
+  }
+  &:hover::after {
+    content: url('../images/svg/filled-triangle-right.svg');
+  }
+  &:active {
+    outline: none;
+    border: none;
+  }
+}
+
+.laws-slider {
+  margin-top: 20px;
+  
+  ul {
+    padding: 15px;
+  }
+  li {
+    padding: 15px 0;
+  }
+  .btn {
+    background-color: #E60C0F;
+    border-radius: 25px;
+    max-width: 320px;
+    padding: 14px 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    &:hover {
+      border-color: #333;
+      background-color: #333;
+    }
+    .transition(all; 250ms);
+  }
+}
+
+
+
+div.image-div {
+  background-color: green;
+  height: 100px;
+  width: 100px;
+}
+
+.main-laws .include-map {
+  margin-top: 80px;
+}

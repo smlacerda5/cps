@@ -1,0 +1,45 @@
+# The Coalition for Public Safety
+
+[![STEP ONE]] (npm install -g grunt)
+
+[![STEP TWO]] (npm install)
+
+[![STEP THREE]] (change environment variable in .env file)
+
+- ********* START OF .env FILE ************************:
+# NOT SURE IF ANY OF THIS WILL CHANGE
+# ONCE YOU DEPLOY BUT THIS IS ALL FROM
+# THE KEYSTONE INSTALL AND ITS ALL LOCATED 
+# IN THE .ENV FILE
+
+  - COOKIE_SECRET=a335ab2d612b7aee8bd34584298498f927af81a90103f4ed6a0c64e5f4c66df2051fe88a759e6d248f9e15870e84a9b9409b19cb8752be1111bdfccade28f966
+
+
+# WE ARE LOADING IMAGES LOCALLY RIGHT NOW
+# SO YOU WILL HAVE TO USE CLOUDINARY
+# FOR PRODUCTION.
+  - CLOUDINARY_URL=cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo
+# TO SIGN UP FOR AN ACCOUNT:
+# https://cloudinary.com/users/register/free
+
+
+# KEYSTONE USES MANDRILL FOR EMAILS THROUGH
+  - MANDRILL_API_KEY=NY8RRKyv1Bure9bdP8-TOQ
+# MAILCHIMP. TO SIGN UP FOR MAILCHIMP:
+# https://mandrill.com/signup/.
+
+
+
+# EVIRONMENT VARIABLE NEEDS TO BE
+# CHANGED TO 'production' OR JUST
+# REMOVED BEFORE DEPLOYMENT
+-  NODE_ENV='development'
+
+- ********* END OF .env FILE ************************:
+
+
+[![STEP FOUR]] (grunt)
+
+# KEYSTONE SHOULD STARTUP AND YOU SHOULD BE
+# READY TO USE THE APPLICATION
+

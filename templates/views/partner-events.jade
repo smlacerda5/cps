@@ -1,0 +1,38 @@
+include ../mixins/pagination
+include ../mixins/header-partner-events
+include ../mixins/filter-by-btn
+
+extends ../layouts/default
+
+block header
+	+partnerEventsHeader(data.featured)
+
+block content
+	.page
+		.container
+			.section
+				.section-title.change-border-xl
+					.title
+						h1= partnerEventsTitle
+			
+					.categories-section.row
+
+				.block-row.filter-by-replace
+					each story in data.posts.results
+						.block-sm-6.block-xs-12.align-top
+							a(href=story.url).story-anchor
+								.content-background.hover-rose.equal-height
+									if story.thumbnail_url
+										.embed.ratio-16-9
+											img(src=story.thumbnail_url)
+									.date-container
+										label
+											if story.eventDate
+												| #{story._.eventDate.format('MMM D, YYYY')}
+									.story-title-container
+										h4!= story.title
+										
+					+pagination(data.posts)
+
+	include ../includes/join-mailer
+		

@@ -1,0 +1,20 @@
+include ../mixins/pagination
+
+.block-row.filter-by-replace
+  each item in data.posts.results
+    .block-md-4.block-sm-6.block-xs-12.align-top
+      a(href=item.sourceLink target="_blank").hover-external-link
+        .item.bg-light.hover-rose.equal-height
+            .item-categories
+              each category in item.categories
+                span.item-category= category.name
+            .item-title
+                h4= item.title
+            if item.source
+              .source.block-row
+                .source-left.block-xs-3
+                  span.icon-external-link-square
+                .source-right.text-right.block-xs-9
+                  p.article-source= item.source.toUpperCase()
+
+  +pagination(data.posts, data.path)

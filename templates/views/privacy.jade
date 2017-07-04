@@ -1,0 +1,26 @@
+include ../mixins/plain-header
+
+extends ../layouts/default
+
+block header
+    +plainHeader(privacyHeader)
+
+block content
+    .page.page-privacy
+        .container
+            .section.privacy-section
+                .section-title.border-top-xl.border-bottom-sm
+                    h1= privacySectionTitle
+                .section-title.privacy-info
+                    h3= privacySection1Subtitle
+                    p= privacySection1Info
+                    h3= privacySection2Subtitle 
+                    p= privacySection2Info
+                    h3= privacySection3Subtitle
+                    p= privacySection3Info
+                    h3= privacySection4Subtitle
+                    p= privacySection4Info
+                    h3= privacySection5Subtitle
+                    p= privacySection5Info 
+                    h3= privacySection6Subtitle
+                    p= privacySection6Info

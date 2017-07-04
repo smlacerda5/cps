@@ -1,0 +1,128 @@
+include ../mixins/partners
+include ../mixins/header-index
+extends ../layouts/default
+
+block header
+	+indexHeader(data.header)
+
+block content
+	.page-index.page
+		.section.index-banner
+			.container
+				h3!= indexBanner
+				include ../includes/form-homepage
+
+		//- video section
+		if data.video && data.video.link
+			.section.text-center.home-video
+				.container
+					//- .video
+					//- 	video(muted plays-inline controls)
+					//- 		source(src="#{data.video.link}" type="video/mp4")
+					.embed-container
+						iframe(src="#{data.video.link}" frameborder='0' allowfullscreen)
+					
+		.container.main-body
+			//- infographic section
+			.main-1
+				.main-americans.section
+					.flex-row-container.flex-start.border-top-xl.border-bottom-sm.title-section
+						h1.flex-2= indexSection1Title 
+						.flex-1.text-right.triangle-hover.learn-more-container
+							a(href=keyIssues)
+								p.learn-more.text-right= learnMore
+								.triangle-two-color-right-big
+
+					#infographic-carousel.carousel.slide(data-ride="carousel")
+						ol.carousel-indicators
+							each item,idx in data.infographics
+								li(data-target="#infographic-carousel" data-slide-to="#{idx}" class="#{idx == 0 ? 'active' : null}")
+						.carousel-inner
+							each item,idx in data.infographics
+								.item(class="#{idx == 0 ? 'active' : null}")
+									img(srcset='#{item.small_url} 500w, #{item.medium_url} 900w' src='#{item.medium_url}' alt=item.title)
+							a.left.carousel-control(href="#infographic-carousel" role="button" data-slide="prev")
+								span.icon-prev(aria-hidden="true")
+							a.right.carousel-control(href="#infographic-carousel" role="button" data-slide="next")
+								span.icon-next(aria-hidden="true")
+
+
+		.main-laws.section.container
+			.flex-row-container.flex-start.border-top-xl.border-bottom-sm.title-section
+				h1.flex-2= stateReformsSectionTitle 
+				.flex-1.text-right.triangle-hover.learn-more-container
+					a(href=stateWork)
+						p.learn-more.text-right= learnMore
+						.triangle-two-color-right-big
+			include ../includes/map
+		
+		//- stories section 
+		div.main-stories.container
+			.flex-row-container.flex-start.stories-title.border-top-xl
+				h1.flex-1= indexSection2Title
+				.flex-1.text-right.triangle-hover
+					div
+						.text-right.triangle-hover.learn-more-container
+							a(href=stories)
+								p.learn-more.text-right= indexSection2SeeMore
+								.triangle-two-color-right-big
+			div.block-row
+				each story in data.stories
+					div.story-sample.block-lg-6.block-md-6.block-xs-12.align-top
+						div.content-background.hover-rose.equal-height
+							a(href=story.url).story-anchor
+								div.embed.ratio-16-9
+									img(src=story.thumbnail_url).story-image
+								div.date-container
+									h5
+										if story.publishedDate
+											| #{story._.publishedDate.format('MMM D, YYYY')}
+								div.story-title-container
+									h4= story.title
+
+		//- feed section
+		div.main-feeds.block-row
+			div#feed-1-slider.feed-1.equal-height
+				
+			.what.section.container
+				.what-heading.border-top-xl
+					h1= indexSection3Title
+					p= indexSection3Info
+				div.what-links-1.row
+					p.col-sm-6.col-xs-12.triangle-hover
+						a(href=keyIssues)= indexSection3LearnLink 
+							span.triangle-two-color-right-big
+					p.col-sm-6.col-xs-12.triangle-hover
+						a(href=research)= indexSection3ResearchLink
+							span.triangle-two-color-right-big
+					p.col-sm-6.col-xs-12.triangle-hover
+						a(href=takeAction)= indexSection3CommunityLink 
+							span.triangle-two-color-right-big
+					p.col-sm-6.col-xs-12.triangle-hover
+						a(href=contactGeneral)= indexSection3ContactUs
+							span.triangle-two-color-right-big
+
+			div.feed-2.equal-height
+				each release, idx in data.press
+					a.feed-2-container.social-card.col-lg-4.col-md-4.col-sm-12(href=release.url, class="card-" + idx)
+						div
+							div.feed.title
+								h5= release.title
+							div.feed-blurb
+								p!= release.content.brief.slice(0, 140) + '...'
+							div.media-date-container
+								div.feed-media
+									p= release.source
+								div.feed-date
+									p= release._.publishedDate.format('MMM D, YYYY').toUpperCase()
+
+		//- partners section
+		+partners(data.partners)
+
+		//- join-newsletter
+		include ../includes/join-newsletter		
+
+block js
+	script(src='/js/social-media-feed-request.js')
+	script(src='/js/d3/d3.v3.js')
+	script(src='/js/map.js')

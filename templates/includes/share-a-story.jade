@@ -1,0 +1,13 @@
+.container.share-a-story-template
+  h1= shareStoryTitle
+  .row
+    .col-lg-8.col-md-8.col-sm-8
+      h3= shareStorySubtitle
+    .col-lg-4.col-md-4.col-sm-4
+      if data.story
+        a(href="/contact?subject=" + data.story.title)
+          button.btn-default-red= shareStoryBtn
+      else
+        a(href="/contact")
+          button.btn-default-red= shareStoryBtn
+

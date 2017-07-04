@@ -1,0 +1,108 @@
+/* JOIN NEWSLETTER INCLUDE */
+.join-us {
+  z-index: 1;
+  position: relative;
+}
+.join-newsletter {
+  position: relative;
+  
+  .section-title {
+    h1 {
+      padding-bottom: 24px;
+    }
+  }
+  h3 {
+    font-family: Rubik-Regular;
+  }
+  .join-us-form {
+    padding-top: 36px;
+  }
+  .join-us-form input {
+    width: 100%;
+    padding-top: 24px;
+    border: none;
+    border-bottom: 2px solid @lightgrey;
+    padding-bottom: 6px;
+  }
+  .join-us-form input:focus {
+    border-color: @black;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  input[type="submit"] {
+    border: none;
+    margin-right: 0;
+    padding-top: 5px;
+    font-family: Rubik-Bold;
+    margin-top: 10px;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .join-newsletter {
+    .btn-join-now {
+      text-align: center;
+    }
+    input[type="submit"] {
+      margin-top: 48px;
+    }
+  }
+}
+
+
+
+.newsletter-form {
+  padding: 0;
+  margin-top: 20px;
+
+  .newsletter-group {
+    input[type='email'], input[type='text'] {
+      width: 100%;
+      padding: 22px 5px 5px 0;
+      border: none;
+      border-bottom: 2px solid #e0dcdc;
+      background-color: transparent;
+    }
+  }
+}
+.newsletter-form {
+  .newsletter-group {
+    input[type='email']:focus, input[type='text']:focus {
+      border-color: @white;
+      outline: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    input[type='submit'] {
+      color: @header-background;
+    }
+    input[type='email']::-webkit-input-placeholder,
+      input[type='text']::-webkit-input-placeholder {
+      color: #e0dcdc;
+    }
+    input[type='email']:focus::-webkit-input-placeholder,
+    input[type='text']:focus::-webkit-input-placeholder {
+      color: @white;
+    }
+  }
+}
+
+
+@media (max-width: 992px) {
+  .newsletter-group > input[type='submit'] {
+    margin-top: 48px;
+  }
+  .newsletter-group:nth-child(3) {
+    clear: both;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  form.newsletter-form {
+    margin-top: 54px;
+  }
+}

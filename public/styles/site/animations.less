@@ -1,0 +1,118 @@
+/* -------------- KEYFRAME ANIMATIONS ------------ */
+
+// ANIMATIONS FOR SLIDING MEDIA BOXES ON INDEX PAGE
+@keyframes move-left {
+ 0% {
+   -webkit-transform: translateX(320px);
+   -ms-transform: translateX(320px);
+   -o-transform: translateX(320px);
+   -moz-transform: translateX(320px);
+   transform: translateX(320px);
+ }
+ 100% {
+   -webkit-transform: translateX(-1200px);
+   -ms-transform: translateX(-1200px);
+   -o-transform: translateX(-1200px);
+   -moz-transform: translateX(-1200px);
+   transform: translateX(-1200px);
+ }
+};
+
+@keyframes move-right {
+  0% {
+   -webkit-transform: translateX(-1300px);
+   -ms-transform: translateX(-1300px);
+   -o-transform: translateX(-1300px);
+   -moz-transform: translateX(-1300px);
+    transform: translateX(-1300px);
+  }
+  100% {
+   -webkit-transform: translateX(220px);
+   -ms-transform: translateX(220px);
+   -o-transform: translateX(220px);
+   -moz-transform: translateX(220px);
+    transform: translateX(220px);
+  }
+};
+
+
+.feed-1 {
+  position: relative;
+  -webkit-animation: move-left 60s linear 0s alternate infinite;
+  -o-animation: move-left 60s linear 0s alternate infinite;
+  -ms-animation: move-left 60s linear 0s alternate infinite;
+  -moz-animation: move-left 60s linear 0s alternate infinite;
+  animation: move-left 60s linear 0s alternate infinite;;
+}
+
+.feed-2{
+  position: relative;
+  -webkit-animation: move-right 60s linear 0s alternate infinite;
+  -o-animation: move-right 60s linear 0s alternate infinite;
+  -ms-animation: move-right 60s linear 0s alternate infinite;
+  -moz-animation: move-right 60s linear 0s alternate infinite;
+  animation: move-right 60s linear 0s alternate infinite;
+}
+
+.feed-1:hover,
+.feed-2:hover {
+  animation-play-state: paused;
+}
+
+
+// ANIMATION THAT DARKENS MEDIA CARDS AS THEY TRAVEL ACROSS THE SCREEN 
+@keyframes darkenCard {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.feed-1 > .social-card {
+  .social-blue;
+  opacity: .5;
+}
+
+.feed-2 > .social-card {
+  .social-red;
+  opacity: .5;
+}
+
+.tweet-0,
+.card-5 {
+  -webkit-animation: darkenCard 14s linear 0s alternate infinite;
+  animation: darkenCard 14s linear 0s alternate infinite;
+}
+
+.tweet-1,
+.card-4 {
+  -webkit-animation: darkenCard 14s linear 10s alternate infinite;
+  animation: darkenCard 14s linear 10s alternate infinite;
+}
+
+.tweet-2,
+.card-3 {
+  -webkit-animation: darkenCard 14s linear 20s alternate infinite;
+  animation: darkenCard 14s linear 20s alternate infinite;
+}
+
+.tweet-3,
+.card-2 {
+  -webkit-animation: darkenCard 14s linear 30s alternate infinite;
+  animation: darkenCard 14s linear 30s alternate infinite;
+}
+
+.tweet-4,
+.card-1 {
+  -webkit-animation: darkenCard 14s linear 40s alternate infinite;
+  animation: darkenCard 14s linear 40s alternate infinite;
+}
+
+.tweet-5,
+.card-0 {
+  -webkit-animation: darkenCard 14s linear 50s alternate infinite;
+  animation: darkenCard 14s linear 50s alternate infinite;
+}
+

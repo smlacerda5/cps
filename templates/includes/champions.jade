@@ -1,0 +1,33 @@
+.block-row
+	//- makes sure the dates are consecutive, if not, then it lists the 
+	//- generic male or female icon
+
+	- for (var i = 0, j = 0, k = 0; i < 12; i++) {
+		-post = data.posts[j]
+
+		if post && post.forDate && post.forDate.getMonth() == i
+			.block-md-4.block-sm-4.block-xs-12.align-top.justice-single-block
+				if post.thumbnail_url || post.cloudImageBg || post.imageBg
+					a(href=data.posts[j].url)
+						.justice-block-container
+							.justice-background
+								.embed.ratio-1-1
+									img(src='#{post.small_url_bg}' alt=post.title)
+								.justice-champion-container
+									p.justice-name= data.posts[j].name
+									p.justice-job-title= data.posts[j].jobTitle
+							.justice-month.text-center
+								p= data.posts[j]._.forDate.format('MMMM YYYY')
+			-j = j + 1
+		else
+			.block-md-4.block-sm-4.block-xs-12.align-top.justice-single-block
+				.justice-block-container
+					.justice-background
+						.embed.ratio-1-1
+							img(src="#{k % 2 == 0 ? '/icon-female.png' : '/icon-male.png'}")
+					.justice-month.text-center
+						-newDate = new Date((new Date()).setMonth(i))
+						p= newDate.toLocaleString('en-us', { year: 'numeric', month: 'long'})
+			-k = k + 1
+
+	- }

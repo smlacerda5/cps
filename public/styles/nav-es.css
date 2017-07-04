@@ -1,0 +1,30 @@
+@media (min-width: 1100px) {
+  .nav-left li:first-child {
+    margin-left: 18px !important;
+  }
+  .nav-right li:last-child {
+    margin-right: 18px !important;
+  }
+}
+
+@media (min-width: 1079px) {
+  .nav li {
+    margin-left: 18px !important;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .nav li {
+    margin-left: 16px;
+  }
+  .nav-left li:first-child {
+    margin-left: 20px;
+  }
+  .nav-right li:last-child {
+    margin-right: 20px;
+  }
+} /* END OF 992px MEDIA QUERY */
+
+
+

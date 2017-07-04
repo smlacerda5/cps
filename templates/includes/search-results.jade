@@ -1,0 +1,29 @@
+.page
+	.container
+		.form.search-form
+			if data.tags && data.tags.length > 0
+				.tag-cloud-container.text-center
+					each tag in data.tags
+						a(href="#{tag.url}" data-id="#{tag._id}").tag-cloud-item= tag.name
+			form(role="search" action="/search/results" method="GET").row
+				.hidden
+				.col-xs-12.col-md-10
+					input(type="text" name="keywords" placeholder=insertKeywords).search-box
+				.col-xs-12.col-md-2.text-center
+					button(type="submit").search-btn.btn-default-red= searchButton
+
+		.issues-container.block-row.section.filter-by-replace-search
+			if data.posts && data.posts.length > 0
+				each post in data.posts
+					.issue-container.block-xs-12.block-sm-6
+						div.border-top-med
+							if (post.sourceLink)
+								a(href=post.sourceLinkUrl target="_blank")
+									h3.issue-title= post.title
+									.issue-excerpt
+										!= post.excerpt
+							else
+								a(href=post.url).issue-container
+									h3.issue-title= post.title
+									.issue-excerpt
+										!= post.excerpt

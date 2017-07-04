@@ -1,0 +1,22 @@
+include ../mixins/pagination
+
+if filters.locale == 'en'
+	include ./variables-page-en
+else
+	include ./variables-page-es
+
+.stats-container.filter-by-replace
+	each post in data.posts.results
+		.stats-row
+			a(href=post.url)
+				.stat-container.flex-row-container.flex-start.triangle-hover
+					.stat-content
+						h3.stat-title= post.title
+						!= post.content.brief
+						div
+							p.state-work-learn-more= learnMore 
+							span.triangle-two-color-right-big
+					.stat-image.text-center
+						img(src=post.thumbnail_url).media-middle
+
+	+pagination(data.posts, data.path)

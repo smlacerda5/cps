@@ -1,0 +1,21 @@
+.include-map
+  div.state-map.col-sm-8
+    div.board
+  div.map-items.col-sm-4
+    each state,idx in data.states
+      div.laws-slider.states(id=state.location.name.replace(' ', '') class=state.location.name+'-'+idx class="#{idx == 0 ? null : 'hide-me'}")  
+        div.state-name
+          button.state-nav.state-nav-left
+            span.nav-left.triangle
+          button.state-nav.state-nav-right
+            span.nav-right.triangle
+          h3#state-title= state.location.name
+        ul.state-info
+          if state.bullet1
+            li#p1= state.bullet1
+          if state.bullet2
+            li#p2= state.bullet2 
+          if state.bullet3
+            li#p3= state.bullet3 
+        a.btn.btn-danger(href=state.url)!= mapBtn
+          span#abbr= state.location.abbreviation

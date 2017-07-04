@@ -1,0 +1,20 @@
+mixin relatedContentSubsection(related, post)
+	if related && related.length > 0
+		.related.related-2.block-xs-12.align-top
+			.related-heading 
+				p= socialMediaRelated
+					each item in related
+						.related-stories
+							if item.sourceLink
+								a(href=item.sourceLink target="_blank")= item.title
+							else
+								a(href=item.url)= item.title
+
+
+	if post && post.tags && post.tags.length > 0
+		.related.related-2.block-xs-12.align-top.related-tags-sp
+			.related-heading
+				p= tagCloud
+			each item in post.tags
+				.related-stories
+						a(href=item.url)= item.name

@@ -1,0 +1,20 @@
+include ../mixins/next-item
+include ../mixins/single-story
+include ../mixins/header-story
+include ../mixins/related-content-subsection
+
+extends ../layouts/default
+
+block header
+  +headerStory(data.post)
+
+block content
+  .page-story.page
+    .section.container
+      +single-story(data.post, data.related)
+
+      +next-item(null, data.next, true)
+
+      +relatedContentSubsection(data.related, data.post)
+
+    include ../includes/join-mailer

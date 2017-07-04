@@ -1,0 +1,267 @@
+
+/* =========== FOOTER ========== */
+#footer {
+  margin-top: 192px;
+  .width-100;
+  padding-top: 36px;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: @footer-background;
+}
+.footer-social-icons {
+  background-color: transparent !important;
+  padding-left: 0;
+  div.col-xs-3 {
+    width: 0;
+  }
+  p {
+    width: 15%;
+    text-align: left;
+  }
+    > div:hover p {
+    color: rgba(255, 255, 255, .8);
+  }
+}
+.static-footer {
+  padding-left: 36px;
+  padding-right: 36px;
+  min-height: 243px;
+
+  .copyright-container {
+    color: @lightgrey;
+    p {
+      color: inherit;
+      font-size: 11px; 
+      line-height: 19px;
+    }
+    a {
+      color: inherit;
+      font-size: 11px; 
+      line-height: 19px;
+      text-decoration: underline !important;
+    }
+    .copyright {
+      p,
+      a {
+        color: #777;
+      }
+    }
+  }
+  img {
+    width: auto;
+    margin-bottom: 24px;
+  }
+  .nav-sec-border {
+    padding-bottom: 72px;
+  }
+  .tlmworks-built {
+    margin-bottom: 24px;
+
+    .tlmworks, 
+    .foot-anchor {
+      margin: 0px 0 0px;
+      color: @white;
+    }
+    .foot-anchor {
+      text-decoration: underline !important;
+    }
+  }
+  .footer-list {
+    border-top: 3px solid @white;
+
+    .foot-menu {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      font-size: 12px !important;
+      color: @white;
+      font-family: Rubik-Bold;
+      line-height: 20px;
+    }
+    li {
+      list-style-type: none;
+      margin-bottom: 12px;
+    }
+    li > a {
+      font-size: 12px;
+      color: @lightgrey;
+    }
+    li:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .static-footer {
+    .copyright {
+      display: none;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .static-footer {
+    .copyright {
+      text-align: right;
+    }
+  }
+}
+
+
+/* ========= SUPPORTERS ========= */
+.supporters {
+  padding: 15px 36px;
+  .width-100;
+  min-height: 84px;
+  background-color: @support;
+
+  .supporters-tagline {
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 1.2px;
+  }
+  .supporters-tagline-sm {
+    display: none;
+  }
+  > div, ul {
+    padding-left: 0;
+    padding-right: 0;
+  } 
+  > div:first-child {
+    padding-right: 72px;
+  }
+}
+.support-logos {
+  opacity: 0.5;
+}
+.cfps-supporters {
+  > div {
+    padding-right: 0;
+    position: relative;
+  }
+  img {
+    width: initial;
+    max-width: 85%;
+  }
+  > div img {
+      position: absolute;
+      padding: 24px 15px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      bottom: 50%;
+      top: 50%;
+      margin-bottom: auto;
+      margin-top: auto;
+    }
+    > div img:last-child {
+      opacity: 0;
+    }
+    > div img:first-child {
+      opacity: 1;
+    }
+    > div:hover img:first-child {
+      opacity: 0;
+      .transition(all; 250ms; ease-in-out);
+    }
+    > div:hover img:last-child {
+      opacity: 1;
+      .transition(all; 250ms; ease-in-out);
+    }
+}
+
+@media (max-width: 992px) {
+  .cfps-supporters {
+    padding-bottom: 12px;
+
+    > div {
+      margin-bottom: 0;
+    }
+
+    .block:nth-child(2),
+    .block:nth-child(3) {
+      text-align: center;
+    }
+    .block:nth-child(4) {
+      text-align: right;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .cfps-supporters {
+    .block:nth-child(even) {
+      text-align: right;
+    }
+    .block:nth-child(odd) {
+      text-align: left;
+    }
+    .block:nth-child(1),
+    .block:nth-child(2) {
+      margin-bottom: 20px;
+    }
+  }
+  .supporters-tagline {
+    display: none;
+  }
+  .supporters-tagline-sm {
+    display: block !important;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 1.2px;
+  }
+}
+@media (max-width: 992px) {
+  .supporters {
+    .supporters-tagline-container {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .cfps-supporters {
+      padding-bottom: 40px;
+    }
+  }
+}
+
+
+/* footer images, making them display color on hover */
+.footer-supporters {
+
+  > div {
+    min-height: 84px;
+    position: relative;
+    text-align: center;
+
+    img {
+      position: absolute;
+      width: initial;
+      max-width: 100%;
+      padding: 0 15px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      top: 0;
+      bottom: 0;
+      margin-bottom: auto;
+      margin-top: auto;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      .transition(all; 100ms);
+    } 
+    :hover img {
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(0);
+    } 
+  }
+}
+@media (max-width: 768px) {
+  .footer-supporters {
+    > div img {
+      margin-left: 0;
+    }
+    > div:nth-child(even) img {
+      left: inherit;
+      right: 0;
+    }
+  }
+}

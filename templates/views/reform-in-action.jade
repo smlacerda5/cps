@@ -1,0 +1,89 @@
+include ../mixins/header-generic
+include ../mixins/pagination
+include ../mixins/allies
+include ../mixins/filter-by-btn
+include ../mixins/tags
+
+extends ../layouts/default
+
+
+block header
+	.header-intro
+		+genericHeader(data.header)
+
+
+block content
+	.page-stat.page.page-reform-in-action
+
+		.main-laws.section.container
+			.section-title.change-border-xl
+				.title
+					h1= stateWorkSectionTitle 
+			include ../includes/map
+		
+		if data.posts && data.posts.length > 0
+			.container
+				.section
+					.border-bottom-xl.flex-row-container.flex-start.section-title
+						h1.flex-2= stateReformsSectionTitle
+						.flex-1.text-right.triangle-hover
+						if data.posts && data.posts.length > 1
+							div
+								.text-right.triangle-hover.learn-more-container
+									a(href=stateWork)
+										p.learn-more.text-right= seeAll
+										.triangle-two-color-right-big
+					
+					.stats-container
+						each post in data.posts
+							.stats-row
+								a(href=post.url)
+									.stat-container.flex-row-container.flex-start.triangle-hover
+										.stat-content
+											h3.stat-title= post.title
+											!= post.content.brief
+											div
+												p.state-work-learn-more= learnMore 
+												span.triangle-two-color-right-big
+										.stat-image.text-center
+											img(src=post.thumbnail_url).media-middle
+
+		if data.fedPosts && data.fedPosts.length > 0
+			.container
+				.section
+					.border-bottom-xl.flex-row-container.flex-start.section-title
+						h1.flex-2= federalWorkSectionTitle
+						.flex-1.text-right.triangle-hover
+						if data.fedPosts && data.fedPosts.length > 1
+							div
+								.text-right.triangle-hover.learn-more-container
+									a(href=fedWork)
+										p.learn-more.text-right= seeAll
+										.triangle-two-color-right-big
+						
+					.stats-container
+						each post in data.fedPosts
+							.stats-row
+								.stat-container.flex-row-container.flex-start.triangle-hover
+									.stat-content
+										a(href=post.url)
+											h3.stat-title= post.title
+											!= post.content.brief
+										//- +tags(post)
+										div
+											a(href=post.url)
+												p.state-work-learn-more= learnMore 
+												span.triangle-two-color-right-big
+									.stat-image.text-center
+										a(href=post.url)
+											img(src=post.thumbnail_url).media-middle
+
+
+		+allies(data.allies)
+
+		include ../includes/join-newsletter
+
+
+block js
+	script(src='/js/d3/d3.v3.js')
+	script(src='/js/map.js')

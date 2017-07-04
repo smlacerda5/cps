@@ -1,0 +1,19 @@
+.container
+  .donate-include
+    .section-title.row
+      //- THE .donate BUTTON IS NOT TO BE DISPLAYED RIGHT NOW
+      .donate.col-sm-6.col-xs-12
+        h1.border-top-xl= donateTitle
+        p= donateSubtitle
+        button.btn-default-red= donateBtn
+      //- THIS COL WAS TO ALLOW FOR SOME SPACE BETWEEN .donate AND .follow-us
+      //- .col-sm-2
+      .follow-us.col-sm-12.col-xs-12
+        h1.border-top-xl= donateFollow
+        div
+          a(href=facebook target="_blank").btn-default-white 
+            i.fa.fa-icon-facebook 
+            span= donateFacebookBtn
+          a(href=twitter target="_blank").btn-default-white
+            i.fa.fa-icon-twitter 
+            span= donateTwitterBtn

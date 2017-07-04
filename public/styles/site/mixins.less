@@ -1,0 +1,18 @@
+/* all mixins */
+
+
+.transition(@prop: all; @timing: 200ms; @easeFx: linear) {
+  transition: @prop @timing @easeFx;
+  -webkit-transition: @prop @timing @easeFx;
+  -ms-transition: @prop @timing @easeFx;
+  -moz-transition: @prop @timing @easeFx;
+  -o-transition: @prop @timing @easeFx;
+}
+
+.btn-transition(@prop; @duration) {
+  transition: @prop @duration;
+  -webkit-transition: @prop @duration;
+  -moz-transition: @prop @duration;
+  -o-transition: @prop @duration;
+  -ms-transition: @prop @duration;
+}

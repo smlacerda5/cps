@@ -1,0 +1,43 @@
+mixin headerIssue(post)
+  if post && (post.medium_url || post.small_url || post.large_url || post.x_large_url)
+    #header.plain-header.flex-row-container.flex-start.hero-image
+      img(srcset='#{post.small_url} 500w, #{post.medium_url} 900w, #{post.large_url} 1200w, #{post.x_large_url} 2000w' src='#{post.medium_url}' alt=post.title)
+      .header-intro.container.flex-1
+        .header-issue.block-row.block-align-middle
+          if post.stat1
+            .overview.block-sm-10.block-xs-12
+              h1= issuesSingleTitle + post.title
+              p.overview-small-header= issuesHeaderOverview
+              p.excerpt!= post.overview
+            .statistics.block-sm-2.block-xs-6
+              if post.stat1
+                .stat
+                  p= post.stat1
+                  if post.stat1Label
+                    p.overview-small-header= post.stat1Label
+                  else
+                    p.overview-small-header= issuesStatistics
+              if post.stat2
+                .stat
+                  p= post.stat2
+                  if post.stat2Label
+                    p.overview-small-header= post.stat2Label
+                  else
+                    p.overview-small-header= issuesStatistics
+              if post.stat3
+                .stat
+                  if post.stat3Label
+                    p= post.stat3
+                      p.overview-small-header= post.stat3Label
+                  else
+                    p.overview-small-header= issuesStatistics
+          else
+            .overview.block-sm-12
+              h1= issuesSingleTitle + post.title
+                p.overview-small-header= issuesHeaderOverview
+                p.excerpt!= post.overview
+
+  else
+    #header.plain-header.flex-row-container.flex-start.hero-image.no-image
+      .header-intro.container.flex-1
+        .header-issue.row

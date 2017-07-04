@@ -1,0 +1,32 @@
+//- related - takes in related items
+mixin relatedContent(related, single)
+	.related.block-sm-4.block-xs-12.align-top
+		.social-media-icons
+			.col-xs-3
+				a(href=twitter)
+					p.fa.fa-icon-twitter
+			.col-xs-3
+				a(href=facebook)
+					p.fa.fa-icon-facebook
+			.col-xs-3
+				a(href=linkedIn)
+					p.fa.fa-icon-linkedin
+			.col-xs-3
+				a(href=relatedEmail)
+					p.fa.fa-icon-envelope
+				
+		if related && related.length > 0
+			.related-heading 
+				p= socialMediaRelated
+					each item in related
+						.related-stories
+							a(href="#{item.sourceLink ? item.sourceLink : item.url}" target="#{ item.sourceLink ? '_blank' : '' }")= item.title
+
+		if single.tags && single.tags.length > 0
+			.tags-container-sp
+				.related-heading
+					p= tagCloud
+					each tag in single.tags
+						.related-stories
+							a(href=tag.url)= tag.name
+

@@ -1,0 +1,38 @@
+include ../mixins/pagination
+include ../mixins/featured-story-header
+include ../mixins/filter-by-btn
+
+extends ../layouts/default
+
+block header
+	+featuredStoryHeader(data.featured)
+
+block content
+	.page.page-press
+		.container
+			.section
+				.section-title.change-border-xl
+					.title
+						h1= pressNews
+			
+					.categories-section.row
+
+				.press-items.block-row.filter-by-replace
+					each item in data.posts.results
+						.press-item.block-sm-6.block-xs-12.block-md-4.align-top
+							a(href="#{ !item.sourceLink ? item.url : item.sourceLink }" target="#{ !item.sourceLink ? '' : '_blank' }")
+								.press-item-container.hover-rose.equal-height
+									if item.thumbnail_url
+										.embed.ratio-16-9
+											img(src=item.thumbnail_url)
+									.press-source
+										p= item.source
+									.press-title
+										p= item.title
+									if item.sourceLink
+										.icon-external-link-square
+											
+					+pagination(data.posts)
+
+	include ../includes/join-newsletter
+		

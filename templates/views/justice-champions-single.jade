@@ -1,0 +1,112 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet" type="text/css" href="/js/slick-master/slick/slick.css")
+	link(rel="stylesheet" type="text/css" href="/js/slick-master/slick/slick-theme.css")
+
+
+
+block header
+
+
+block content
+	.page-justice.page-justice-single.page
+
+		//- current champions section
+		.section.champion-background
+			if data.post && data.post.content
+				.container
+					.block-row.justice-header-container
+						.block-md-6.block-xs-12.block-row.justice-credentials-container
+							.block-xs-12
+								.justice-credentials
+									h1.justice-name= data.post.name
+									h3.justice-job-title= data.post.jobTitle
+							.block-xs-12
+							.block-xs-12.align-top.justice-block
+								!= data.post.content.overview
+						.block-md-6.block-xs-12.align-bottom.justice-block.text-center
+							img(src='#{data.post.small_url}')
+		
+
+		//- quote
+		if data.post && data.post.content && data.post.content.quote
+			.container-md
+				.md-section
+					.row
+						.block-xs-12.block-sm-10.align-center
+							!= data.post.content.quote
+
+
+		//- extended content
+		if data.post && data.post.content && data.post.content.extended
+			.container
+				.section
+					.row
+						.block-xs-12.block-sm-10.align-center
+							!= data.post.content.extended
+
+
+		//- champion in the news section
+		if data.news && data.news.length > 0
+			.section
+				.champion-news-container
+					.section-title
+						.title
+							h1.text-center= justiceChampionsNews
+
+					.press-items.block-row.blog-items.text-center#news-carousel(data-slick='{"slidesToShow": 3, "slidesToScroll": 3, "autoplay": true}')
+						each post in data.news
+							.press-item.blog-item.align-top.text-left
+								.blog-item-container.hover-rose.equal-height
+									a(href=post.sourceLink target="_blank")
+										h5.source= post.source
+										if post.publishedDate
+											p.published-date= post._.publishedDate.format('MMMM D, YYYY')
+										h4.title= post.title
+
+
+		//- more champions section
+		if data.posts && data.posts.length > 0
+			.section.more-champions-section
+				.container
+					.section-title
+						.title
+							h1.text-center= justiceChampionsMore
+
+					include ../includes/champions
+
+		include ../includes/join-newsletter
+
+
+block js
+	script(type="text/javascript" src="/js/slick-master/slick/slick.min.js")
+	script(type="text/javascript").
+		$("#news-carousel").slick({
+
+			infinite: true,
+			slidesToShow: 3, 
+			slidesToScroll: 3, 
+			autoplay: true,
+			dots: true,
+			arrows: true,
+			centerMode: true,
+
+			// the magic
+			responsive: [{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 2,
+						slideToScroll: 2,
+					}
+				}, {
+					breakpoint: 750,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+					}
+				}, {
+					breakpoint: 200,
+					settings: "unslick" // destroys slick
+				}]
+		});

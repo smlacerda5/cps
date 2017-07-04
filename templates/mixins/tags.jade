@@ -1,0 +1,6 @@
+mixin tags(post)
+	if post && post.tags && post.tags.length > 0
+		.tags.clearfix
+			each tag in post.tags
+				a(href=tag.url)
+					p= tag.name

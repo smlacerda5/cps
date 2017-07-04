@@ -1,0 +1,22 @@
+mixin cpsEventsHeader(data)
+  if data && data.length > 0
+    #featured-stories-carousel.carousel.slide.align-middle(data-ride="carousel")
+      ol.carousel-indicators
+        each item,idx in data
+          li(data-target="#featured-stories-carousel" data-slide-to="#{idx}" class="#{idx == 0 ? 'active' : null}")
+      .carousel-inner
+        each item,idx in data
+          .item(class="#{idx == 0 ? 'active' : null}")
+            .plain-header.flex-row-container.flex-start.hero-image
+              img(srcset='#{item.small_url} 500w, #{item.medium_url} 900w, #{item.large_url} 1200w, #{item.x_large_url} 2000w' src='#{item.medium_url}' alt=item.title)
+              .header-intro.container.flex-1.text-center
+                .heading.flex-1
+                  h1= item.title
+                  a(href=item.url).btn-read-now= cpsEventsBtn
+
+  else
+    #header.plain-header.flex-row-container.flex-start.hero-image.no-image
+      .header-intro.container.flex-1
+        .row.text-center
+          .col-sm-12
+            h1= cpsEventsTitle

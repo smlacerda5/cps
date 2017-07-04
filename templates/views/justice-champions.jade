@@ -1,0 +1,22 @@
+extends ../layouts/default
+
+block header
+	.language-switch-colored
+
+block content
+	.page-justice.page
+		.container
+			.section
+				if data.header
+					.row.justice-header
+						img(src='#{data.header.medium_url}').center-block.block-xs-12.justice-banner
+						.block-xs-10.center-block.justice-text
+							!=data.header.text
+
+			if data.posts && data.posts.length > 0
+				.section.negative-top-margin
+					include ../includes/champions
+
+
+		include ../includes/join-mailer
+

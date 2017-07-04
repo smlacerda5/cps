@@ -1,0 +1,73 @@
+include ../mixins/pagination
+include ../mixins/header-generic
+
+extends ../layouts/default
+
+block header
+	+genericHeader(data.header)
+
+block content
+	.page-take-action.page
+		.container
+
+			.section
+				include ../includes/join-newsletter
+
+			//- cps events section
+			if data.cpsEvents && data.cpsEvents.length > 0
+				.section
+					.border-top-xl.flex-row-container.flex-start.section-title
+						h1.flex-2= cpsEventsTitle
+						.flex-1.text-right.triangle-hover
+							div
+								.text-right.triangle-hover.learn-more-container
+									a(href=takeAction + '/cps-events')
+										p.learn-more.text-right= seeAll
+										.triangle-two-color-right-big
+
+					.block-row
+						each post in data.cpsEvents
+							.block-sm-6.block-xs-12.align-top
+								a(href=post.url).story-anchor
+									.content-background.hover-rose.equal-height
+										if post.thumbnail_url
+											.embed.ratio-16-9
+												img(src=post.thumbnail_url)
+										.date-container
+											label
+												if post.eventDate
+													| #{post._.eventDate.format('MMM D, YYYY')}
+										.story-title-container
+											h4!= post.title
+						
+
+
+			//- partner events section
+			if data.partnerEvents && data.partnerEvents.length > 0
+				.section
+					.border-top-xl.flex-row-container.flex-start.section-title
+						h1.flex-2= partnerEventsTitle
+						.flex-1.text-right.triangle-hover
+							div
+								.text-right.triangle-hover.learn-more-container
+									a(href=takeAction + '/partner-events')
+										p.learn-more.text-right= seeAll
+										.triangle-two-color-right-big
+
+					.block-row
+						each post in data.partnerEvents
+							.block-sm-6.block-xs-12.align-top
+								a(href=post.url).story-anchor
+									.content-background.hover-rose.equal-height
+										if post.thumbnail_url
+											.embed.ratio-16-9
+												img(src=post.thumbnail_url)
+										.date-container
+											label
+												if post.eventDate
+													| #{post._.eventDate.format('MMM D, YYYY')}
+										.story-title-container
+											h4!= post.title
+
+
+	include ../includes/donate

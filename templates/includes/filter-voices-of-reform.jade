@@ -1,0 +1,18 @@
+include ../mixins/pagination
+
+.block-row.filter-by-replace
+  each story in data.posts.results
+    .block-lg-6.block-md-6.block-xs-12.align-top
+      a(href=story.url).story-anchor
+        .content-background.hover-rose.equal-height
+          if story.thumbnail_url
+            .embed.ratio-16-9
+              img(src=story.thumbnail_url)
+          .date-container
+            label
+              if story.publishedDate
+                | #{story._.publishedDate.format('MMM D, YYYY')}
+          .story-title-container
+            h4!= story.title
+              
+  +pagination(data.posts)

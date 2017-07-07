@@ -19,7 +19,7 @@ exports = module.exports = function (req, res) {
 
   var paginationQuery =  {
     page: req.query.page || 1,
-    perPage: 5, // be sure ./views/filterName has same value
+    perPage: 100, // be sure ./views/filterName has same value
     maxPages: 10,
     filters: {
       state: 'published',

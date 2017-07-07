@@ -32,7 +32,7 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 		var p = keystone.list('StateWork').paginate({
 			page: req.query.page || 1,
-			perPage: 5, // be sure ./api/filterName has same value
+			perPage: 100, // be sure ./api/filterName has same value
 			maxPages: 15,
 			filters: {
 				state: 'published',
